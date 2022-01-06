@@ -1,5 +1,5 @@
 --- 
- - hosts: 172.31.86.207
+ - hosts: all
    become: yes
    tasks:
         - name: install webserver on linux nodes
