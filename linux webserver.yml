@@ -1,0 +1,18 @@
+--- 
+ - hosts: 172.31.86.207
+   become: yes
+   tasks:
+        - name: install webserver on linux nodes
+          yum:
+           name: httpd
+           state: present
+          when: ansible_os_family=="Redhat" 
+
+        - name: start webservice on linux nodes
+          service:
+           name: httpd
+           state: started
+          when: ansible_os_family=="Redhat"      
+
+
+     
