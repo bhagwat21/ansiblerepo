@@ -1,31 +1,31 @@
 --- 
-  - hosts: all
-    become: yes
-    tasks:
-    - name: install webserver on ubuntu nodes
-      apt:
-       name: apache2
-       state: present
-      when: ansible_os_family=="Debian"
+ - hosts: all
+   become: yes
+   tasks:
+     - name: install webserver on ubuntu nodes
+       apt:
+        name: apache2
+        state: present
+       when: ansible_os_family=="Debian"
 
-  - name: start service on ubuntu nodes
-    service:
-       name: apache2
-       state: started
+     - name: start service on ubuntu nodes
+       service:
+        name: apache2
+        state: started
        when: ansible_os_family=="Debian" 
 
 
-  - name: install webserver on linux nodes
-    apt:
-     name: httpd
-     state: present
-    when: ansible_os_family=="Redhat" 
+     - name: install webserver on linux nodes
+       apt:
+        name: httpd
+        state: present
+       when: ansible_os_family=="Redhat" 
 
-  - name: start webservice on linux nodes
-    service:
-     name: httpd
-     state: started
-    when: ansible_os_family=="Redhat"
+     - name: start webservice on linux nodes
+       service:
+        name: httpd
+        state: started
+       when: ansible_os_family=="Redhat"
 
 
      
