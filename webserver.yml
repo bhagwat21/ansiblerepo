@@ -2,10 +2,10 @@
   - hosts: all
     become: yes
     tasks:
-  - name: install webserver on ubuntu nodes
-    apt:
-     name: apache2
-     state: present
+     - name: install webserver on ubuntu nodes
+       apt:
+        name: apache2
+        state: present
     when: ansible_os_family== "Debian"
 
   - name: start webservice on ubuntu nodes
